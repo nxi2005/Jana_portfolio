@@ -893,6 +893,48 @@
         }
 
         /* ============================================
+           LANGUAGE TOGGLE
+        ============================================ */
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            position: relative;
+        }
+
+        .lang-toggle {
+            display: flex;
+            align-items: center;
+            gap: .25rem;
+            background: none;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            padding: .42rem .8rem;
+            font-family: var(--font-accent);
+            font-size: .72rem;
+            letter-spacing: .2em;
+            transition: border-color .25s;
+            outline: none;
+        }
+
+        .lang-toggle:hover { border-color: var(--gold); }
+
+        .lt-en, .lt-hr {
+            color: var(--cream-dim);
+            transition: color .2s;
+        }
+
+        .lt-sep {
+            color: rgba(201,168,76,.3);
+            margin: 0 .05rem;
+        }
+
+        .lang-toggle[data-lang="en"] .lt-en,
+        .lang-toggle[data-lang="hr"] .lt-hr {
+            color: var(--gold);
+        }
+
+        /* ============================================
            SCROLL REVEAL
         ============================================ */
         .reveal {
@@ -1032,7 +1074,7 @@
     <div class="loader" id="loader">
         <div class="loader-name"><span>JANA FILKO</span></div>
         <div class="loader-bar"></div>
-        <div class="loader-sub">DIGITAL CONTENT CREATOR</div>
+        <div class="loader-sub" data-i18n="loaderSub">DIGITAL CONTENT CREATOR</div>
     </div>
 
     <!-- ──────────────────────────────────────────
@@ -1040,7 +1082,14 @@
     ────────────────────────────────────────── -->
     <nav>
         <div class="nav-logo">Jana <em>Filko</em></div>
-        <a href="#contact" class="nav-cta">Work With Me</a>
+        <div class="nav-actions">
+            <button class="lang-toggle" id="langToggle" data-lang="en" aria-label="Toggle language / Promijeni jezik">
+                <span class="lt-en">EN</span>
+                <span class="lt-sep">|</span>
+                <span class="lt-hr">HR</span>
+            </button>
+            <a href="#contact" class="nav-cta" data-i18n="navCta">Work With Me</a>
+        </div>
     </nav>
 
     <!-- ──────────────────────────────────────────
@@ -1054,13 +1103,13 @@
 
         <div class="hero-badge">
             <div class="badge-num">848K</div>
-            <div class="badge-label">VIDEO VIEWS</div>
+            <div class="badge-label" data-i18n="heroBadgeLabel">VIDEO VIEWS</div>
         </div>
 
         <div class="hero-content">
-            <div class="hero-eyebrow">Digital Content Creator</div>
+            <div class="hero-eyebrow" data-i18n="heroEyebrow">Digital Content Creator</div>
             <h1 class="hero-title">Jana<em>Filko</em></h1>
-            <p class="hero-sub">Vlogger &nbsp;·&nbsp; Fashion &nbsp;·&nbsp; Makeup</p>
+            <p class="hero-sub" data-i18n="heroSub">Vlogger &nbsp;·&nbsp; Fashion &nbsp;·&nbsp; Makeup</p>
             <div class="hero-scroll">
                 <div class="scroll-ticker"></div>
                 SCROLL
@@ -1113,17 +1162,16 @@
                 </div>
 
                 <div class="about-text">
-                    <div class="eyebrow reveal d1">About</div>
-                    <h2 class="section-title reveal d2">
+                    <div class="eyebrow reveal d1" data-i18n="aboutEyebrow">About</div>
+                    <h2 class="section-title reveal d2" data-i18n="aboutTitle">
                         Hey! I'm<br><em>Jana.</em>
                     </h2>
-                    <p class="about-body reveal d3">
+                    <p class="about-body reveal d3" data-i18n="aboutBody1">
                         On my TikTok I share content around makeup, skincare, fashion and everyday life. My content is relaxed, fun and authentic — focused on real results and honest recommendations.
                     </p>
-                    <p class="about-body reveal d4">
+                    <p class="about-body reveal d4" data-i18n="aboutBody2">
                         I love creating videos where my audience can relate and feel connected. I'm open to new ideas and collaborations with brands that share my values.
                     </p>
-                    <div class="about-sign reveal d4">Jana</div>
                 </div>
 
             </div>
@@ -1135,8 +1183,8 @@
     ────────────────────────────────────────── -->
     <section id="content">
         <div class="section-inner">
-            <div class="eyebrow reveal">My Content</div>
-            <h2 class="section-title reveal d1">What I <em>Create</em></h2>
+            <div class="eyebrow reveal" data-i18n="contentEyebrow">My Content</div>
+            <h2 class="section-title reveal d1" data-i18n="contentTitle">What I <em>Create</em></h2>
         </div>
 
         <div class="cards-grid">
@@ -1153,7 +1201,7 @@
                         <div class="card-title">Vlogger</div>
                     </div>
                 </div>
-                <p class="card-caption">From morning routines to late-night wind-downs — a real, unfiltered look at my everyday life.</p>
+                <p class="card-caption" data-i18n="card01Caption">From morning routines to late-night wind-downs — a real, unfiltered look at my everyday life.</p>
             </div>
 
             <!-- 02 Fashion -->
@@ -1163,10 +1211,10 @@
                     <div class="card-shade"></div>
                     <div class="card-body">
                         <div class="card-num">02</div>
-                        <div class="card-title">Fashion</div>
+                        <div class="card-title" data-i18n="card02Title">Fashion</div>
                     </div>
                 </div>
-                <p class="card-caption">Outfit of the day, special occasion looks and style inspiration — always honest, always me.</p>
+                <p class="card-caption" data-i18n="card02Caption">Outfit of the day, special occasion looks and style inspiration — always honest, always me.</p>
             </div>
 
             <!-- 03 Makeup -->
@@ -1178,10 +1226,10 @@
                     <div class="card-shade"></div>
                     <div class="card-body">
                         <div class="card-num">03</div>
-                        <div class="card-title">Makeup</div>
+                        <div class="card-title" data-i18n="card03Title">Makeup</div>
                     </div>
                 </div>
-                <p class="card-caption">Testing new products, skincare routines and makeup tutorials with real, unsponsored opinions.</p>
+                <p class="card-caption" data-i18n="card03Caption">Testing new products, skincare routines and makeup tutorials with real, unsponsored opinions.</p>
             </div>
 
         </div>
@@ -1192,30 +1240,30 @@
     ────────────────────────────────────────── -->
     <section id="stats">
         <div class="section-inner">
-            <div class="eyebrow reveal">Audience &amp; Performance</div>
-            <h2 class="section-title reveal d1">Numbers <em>speak</em></h2>
+            <div class="eyebrow reveal" data-i18n="statsEyebrow">Audience &amp; Performance</div>
+            <h2 class="section-title reveal d1" data-i18n="statsTitle">Numbers <em>speak</em></h2>
 
             <div class="stats-grid">
                 <div class="stat-box reveal">
                     <div class="stat-num" data-count="4694">0</div>
-                    <div class="stat-lbl">TIKTOK<br>FOLLOWERS</div>
+                    <div class="stat-lbl" data-i18n="statLbl1">TIKTOK<br>FOLLOWERS</div>
                 </div>
                 <div class="stat-box reveal d1">
                     <div class="stat-num">848,6K</div>
-                    <div class="stat-lbl">VIEWS —<br>TOP VIDEO</div>
+                    <div class="stat-lbl" data-i18n="statLbl2">VIEWS —<br>TOP VIDEO</div>
                 </div>
                 <div class="stat-box reveal d2">
                     <div class="stat-num">472,3K</div>
-                    <div class="stat-lbl">TOTAL<br>LIKES</div>
+                    <div class="stat-lbl" data-i18n="statLbl3">TOTAL<br>LIKES</div>
                 </div>
                 <div class="stat-box reveal d3">
                     <div class="stat-num">84,7K</div>
-                    <div class="stat-lbl">LIKES —<br>TOP VIDEO</div>
+                    <div class="stat-lbl" data-i18n="statLbl4">LIKES —<br>TOP VIDEO</div>
                 </div>
             </div>
 
             <div class="gender-wrap reveal">
-                <div class="gender-title">AUDIENCE GENDER SPLIT</div>
+                <div class="gender-title" data-i18n="genderTitle">AUDIENCE GENDER SPLIT</div>
                 <div class="gender-bar">
                     <div class="gb-female" data-w="63"></div>
                     <div class="gb-male"   data-w="37"></div>
@@ -1223,12 +1271,12 @@
                 <div class="gender-legend">
                     <div class="gl-item">
                         <div class="gl-dot" style="background:var(--gold)"></div>
-                        <span class="gl-label">Female</span>
+                        <span class="gl-label" data-i18n="genderFemale">Female</span>
                         <span class="gl-pct">63%</span>
                     </div>
                     <div class="gl-item">
                         <div class="gl-dot" style="background:#3d3d3d"></div>
-                        <span class="gl-label">Male</span>
+                        <span class="gl-label" data-i18n="genderMale">Male</span>
                         <span class="gl-pct">37%</span>
                     </div>
                 </div>
@@ -1241,12 +1289,12 @@
     ────────────────────────────────────────── -->
     <section id="demographics">
         <div class="section-inner">
-            <div class="eyebrow reveal">Audience Demographics</div>
-            <h2 class="section-title reveal d1">Age <em>analytics</em></h2>
+            <div class="eyebrow reveal" data-i18n="demoEyebrow">Audience Demographics</div>
+            <h2 class="section-title reveal d1" data-i18n="demoTitle">Age <em>analytics</em></h2>
 
             <div class="demo-layout">
                 <div class="demo-intro reveal d2">
-                    <p>Predominantly young, digitally native audience — ideal for brands looking to reach Gen Z and older millennials.</p>
+                    <p data-i18n="demoIntro">Predominantly young, digitally native audience — ideal for brands looking to reach Gen Z and older millennials.</p>
                 </div>
 
                 <div class="age-bars">
@@ -1281,9 +1329,9 @@
     ────────────────────────────────────────── -->
     <section id="contact">
         <div class="section-inner">
-            <div class="eyebrow reveal">Contact</div>
+            <div class="eyebrow reveal" data-i18n="contactEyebrow">Contact</div>
 
-            <h2 class="contact-headline reveal d1">
+            <h2 class="contact-headline reveal d1" data-i18n="contactHeadline">
                 Let's work
                 <em>together.</em>
             </h2>
@@ -1306,7 +1354,7 @@
                 </a>
             </div>
 
-            <p class="contact-closing reveal d4">Looking forward to working together!</p>
+            <p class="contact-closing reveal d4" data-i18n="contactClosing">Looking forward to working together!</p>
         </div>
     </section>
 
@@ -1315,7 +1363,7 @@
     ────────────────────────────────────────── -->
     <footer>
         <span class="footer-name">Jana Filko</span>
-        <span class="footer-copy">© 2025 JANA FILKO — DIGITAL CONTENT CREATOR</span>
+        <span class="footer-copy" data-i18n="footerCopy">© 2025 JANA FILKO — DIGITAL CONTENT CREATOR</span>
     </footer>
 
 
@@ -1374,6 +1422,93 @@
         };
         requestAnimationFrame(tick);
     }
+
+    /* ─── LANGUAGE TOGGLE ─── */
+    const translations = {
+        en: {
+            loaderSub:       'DIGITAL CONTENT CREATOR',
+            navCta:          'Work With Me',
+            heroBadgeLabel:  'VIDEO VIEWS',
+            heroEyebrow:     'Digital Content Creator',
+            heroSub:         'Vlogger &nbsp;·&nbsp; Fashion &nbsp;·&nbsp; Makeup',
+            aboutEyebrow:    'About',
+            aboutTitle:      "Hey! I'm<br><em>Jana.</em>",
+            aboutBody1:      'On my TikTok I share content around makeup, skincare, fashion and everyday life. My content is relaxed, fun and authentic — focused on real results and honest recommendations.',
+            aboutBody2:      "I love creating videos where my audience can relate and feel connected. I'm open to new ideas and collaborations with brands that share my values.",
+            contentEyebrow:  'My Content',
+            contentTitle:    'What I <em>Create</em>',
+            card01Caption:   'From morning routines to late-night wind-downs — a real, unfiltered look at my everyday life.',
+            card02Title:     'Fashion',
+            card02Caption:   'Outfit of the day, special occasion looks and style inspiration — always honest, always me.',
+            card03Title:     'Makeup',
+            card03Caption:   'Testing new products, skincare routines and makeup tutorials with real, unsponsored opinions.',
+            statsEyebrow:    'Audience &amp; Performance',
+            statsTitle:      'Numbers <em>speak</em>',
+            statLbl1:        'TIKTOK<br>FOLLOWERS',
+            statLbl2:        'VIEWS —<br>TOP VIDEO',
+            statLbl3:        'TOTAL<br>LIKES',
+            statLbl4:        'LIKES —<br>TOP VIDEO',
+            genderTitle:     'AUDIENCE GENDER SPLIT',
+            genderFemale:    'Female',
+            genderMale:      'Male',
+            demoEyebrow:     'Audience Demographics',
+            demoTitle:       'Age <em>analytics</em>',
+            demoIntro:       'Predominantly young, digitally native audience — ideal for brands looking to reach Gen Z and older millennials.',
+            contactEyebrow:  'Contact',
+            contactHeadline: "Let's work <em>together.</em>",
+            contactClosing:  'Looking forward to working together!',
+            footerCopy:      '© 2025 JANA FILKO — DIGITAL CONTENT CREATOR',
+        },
+        hr: {
+            loaderSub:       'DIGITALNI KREATOR SADRŽAJA',
+            navCta:          'Surađuj sa mnom',
+            heroBadgeLabel:  'PREGLEDI VIDEA',
+            heroEyebrow:     'Digitalni kreator sadržaja',
+            heroSub:         'Vlogger &nbsp;·&nbsp; Moda &nbsp;·&nbsp; Šminka',
+            aboutEyebrow:    'O meni',
+            aboutTitle:      'Hej! Ja sam<br><em>Jana.</em>',
+            aboutBody1:      'Na svom TikToku dijelim sadržaj o šminki, njezi kože, modi i svakodnevnom životu. Moj sadržaj je opušten, zabavan i autentičan — usmjeren na stvarne rezultate i iskrene preporuke.',
+            aboutBody2:      'Volim stvarati videe u kojima se moja publika može pronaći i osjetiti povezanost. Otvorena sam za nove ideje i suradnje s brendovima koji dijele moje vrijednosti.',
+            contentEyebrow:  'Moj sadržaj',
+            contentTitle:    'Što <em>kreiram</em>',
+            card01Caption:   'Od jutarnjih rutina do večernjih odmora — stvaran, nefiltriran pogled na moj svakodnevni život.',
+            card02Title:     'Moda',
+            card02Caption:   'Outfit dana, posebni prigodni izgledi i stilska inspiracija — uvijek iskreno, uvijek ja.',
+            card03Title:     'Šminka',
+            card03Caption:   'Testiranje novih proizvoda, rutine njege kože i makeup tutoriali s iskrenim, nesponzoriranim mišljenjima.',
+            statsEyebrow:    'Publika i rezultati',
+            statsTitle:      'Brojke <em>govore</em>',
+            statLbl1:        'TIKTOK<br>PRATITELJI',
+            statLbl2:        'PREGLEDI —<br>TOP VIDEO',
+            statLbl3:        'UKUPNI<br>LAJKOVI',
+            statLbl4:        'LAJKOVI —<br>TOP VIDEO',
+            genderTitle:     'SPOLNA STRUKTURA PUBLIKE',
+            genderFemale:    'Žene',
+            genderMale:      'Muškarci',
+            demoEyebrow:     'Demografija publike',
+            demoTitle:       'Analitika <em>dobi</em>',
+            demoIntro:       'Pretežno mlada, digitalno nativna publika — idealna za brendove koji žele doseći Generaciju Z i starije milenijalce.',
+            contactEyebrow:  'Kontakt',
+            contactHeadline: 'Surađujmo <em>zajedno.</em>',
+            contactClosing:  'Jedva čekam zajednički rad!',
+            footerCopy:      '© 2025 JANA FILKO — DIGITALNI KREATOR SADRŽAJA',
+        }
+    };
+
+    function applyLang(lang) {
+        const t = translations[lang];
+        Object.keys(t).forEach(key => {
+            document.querySelectorAll('[data-i18n="' + key + '"]').forEach(el => {
+                el.innerHTML = t[key];
+            });
+        });
+        document.getElementById('langToggle').dataset.lang = lang;
+        document.documentElement.lang = lang;
+    }
+
+    document.getElementById('langToggle').addEventListener('click', function () {
+        applyLang(this.dataset.lang === 'en' ? 'hr' : 'en');
+    });
     </script>
 
 </body>
