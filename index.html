@@ -1192,8 +1192,8 @@
             <!-- 01 Vlogger -->
             <div class="card-wrap reveal">
                 <div class="card">
-                    <video autoplay muted loop playsinline preload="none">
-                        <source src="videi/video_vlog.mp4" type="video/mp4">
+                    <video autoplay muted loop playsinline preload="none" class="lazy-video">
+                        <source data-src="videi/video_vlog.mp4" type="video/mp4">
                     </video>
                     <div class="card-shade"></div>
                     <div class="card-body">
@@ -1207,8 +1207,8 @@
             <!-- 02 Fashion -->
             <div class="card-wrap reveal d1">
                 <div class="card">
-                    <video autoplay muted loop playsinline preload="none">
-                        <source src="videi/video_moda.mp4" type="video/mp4">
+                    <video autoplay muted loop playsinline preload="none" class="lazy-video">
+                        <source data-src="videi/video_moda.mp4" type="video/mp4">
                     </video>
                     <div class="card-shade"></div>
                     <div class="card-body">
@@ -1222,8 +1222,8 @@
             <!-- 03 Makeup -->
             <div class="card-wrap reveal d2">
                 <div class="card">
-                    <video autoplay muted loop playsinline preload="none">
-                        <source src="videi/video_sminka.mp4" type="video/mp4">
+                    <video autoplay muted loop playsinline preload="none" class="lazy-video">
+                        <source data-src="videi/video_sminka.mp4" type="video/mp4">
                     </video>
                     <div class="card-shade"></div>
                     <div class="card-body">
@@ -1376,6 +1376,23 @@
             document.getElementById('loader').classList.add('out');
         }, 1200);
     });
+
+    /* ─── LAZY VIDEO ─── */
+    const lazyVideoObs = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const video = entry.target;
+            video.querySelectorAll('source[data-src]').forEach(source => {
+                source.src = source.dataset.src;
+                source.removeAttribute('data-src');
+            });
+            video.load();
+            video.play();
+            obs.unobserve(video);
+        });
+    }, { rootMargin: '200px' });
+
+    document.querySelectorAll('.lazy-video').forEach(v => lazyVideoObs.observe(v));
 
     /* ─── SCROLL REVEAL + TRIGGERS ─── */
     const revealObs = new IntersectionObserver(entries => {
